@@ -1,0 +1,63 @@
+readableStream.on('data', (chunk) => {
+    writableStream.write(chunk);
+    console.log(chunk);
+});
+
+const { error } = require('node:console');
+const fs = require('fs');
+
+const readableStream = fs.createReadStream('./file.txt', {
+    encoding: 'utf-8',
+});
+
+const writableStream = fs.createWriteStream('./file2.txt', {
+    flags: 'a',
+});
+
+readableStream.pipe(writableStream);
+
+console.log('First');
+async function readFile() {
+     try {
+         const data = await fs.readFile('file.txt', 'utf-8');
+         console.log(data);
+     } catch(err) {
+         console.log(err);
+     }
+ }
+ console.log('Second');
+
+readFile();
+ console.log('First');
+ fs.readFile('fil.txt', 'utf-8')
+ .then((data) => console.log(data))
+ .catch((error) => console.log(error));
+ console.log('Second');
+
+ const fs = require('node:fs');
+
+ console.log('first');
+ fileContent = fs.readFileSync('./file.txt', 'utf-8');
+ console.log(fileContent);
+
+ console.log('second');
+ fs.readFile('./file.txt', 'utf-8', (error, data) => {
+     if (error) {
+         console.log(error);
+     } else {
+         console.log(data);
+     }
+ });
+ console.log('third');
+
+ fs.writeFileSync('./green.txt', 'And Head of Product Flash');
+
+ fs.writeFile('./green.txt', ' And Lead Flash and Bitcoin Benin', { flag: 'a'}, (err) => {
+     if (err) {
+         console.log(err);
+     } else {
+         console.log('Written...')
+     }
+ });
+
+ console.log('Hi')
