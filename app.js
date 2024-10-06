@@ -1,9 +1,12 @@
 const express = require('express');
+const fs = require('fs');
 
 app = express()
 
 app.get('/', (req, res) => {
-    res.send('Holaaaa');
+    html = fs.readFileSync('./index.html', 'utf-8');
+    html = html.replace('{{name}}', 'Satoshi');
+    res.send(html);
 });
 
 app.get('/about', (req, res) => {
