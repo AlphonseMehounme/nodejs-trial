@@ -10,6 +10,6 @@ await client.connect();
 
 await client.set('coin', 'Bitcoin');
 
-const value = await client.get('key');
+const value = await client.get('coin');
 
 console.log(value);
